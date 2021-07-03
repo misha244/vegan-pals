@@ -4,28 +4,27 @@ const cors = require("cors");
 const path = require("path");
 const session = require("express-session");
 const handlebars = require("express-handlebars");
-const sequelizeStore = require("connect-session-sequelize")(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const routes = require("./routes");
 const sequelize = require("./config/connection");
 const helpers = require("./helpers/helpers");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 const sessionOptions = {
-  secret: process.env.SESSION_SECRET || "secret string",
-  cookie: {},
+  secret: process.env.SESSION_SECRET,
   resave: false,
-  saveUninitialized: true,
-  store: new sequelizeStore({
+  saveUninitialized: false,
+  store: new SequelizeStore({
     db: sequelize,
   }),
 };
 
 //handlebars
 
-const handlebarsOptions = { helpers: helpers };
+const handlebarsOptions = { helpers };
 const hbs = handlebars.create(handlebarsOptions);
 
 app.engine("handlebars", hbs.engine);

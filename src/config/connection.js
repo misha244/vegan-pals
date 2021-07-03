@@ -2,21 +2,23 @@ require("dotenv").config();
 const sequelize = require("sequelize");
 
 const dbOptions = {
-  host: "localhost",
+  host: process.env.DB_HOST,
   dialect: "mysql",
-  port: 3306,
+  port: process.env.DB_PORT,
   logging: false,
 };
 
-const dbName = "vegan_pals";
-const dbUser = "root";
-const dbPassword = "password"
+const dbName = process.env.DB_NAME;
+const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASSWORD;
 
 let connection;
 
 if (process.env.JAWSDB_URL) {
+  // connection for heroku
   connection = new sequelize(process.env.JAWSDB_URL);
 } else {
+  // connection for local development
   connection = new sequelize(dbName, dbUser, dbPassword, dbOptions);
 }
 

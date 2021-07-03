@@ -14,13 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dominikacookies/vegan-pals.git"
+    "url": "git+https://github.com/misha244/vegan-pals.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dominikacookies/vegan-pals/issues"
+    "url": "https://github.com/misha244/vegan-pals/issues"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -36,5 +36,5 @@
     "sequelize": "^6.6.2",
     "uuid": "^8.3.2"
   },
-  "homepage": "https://github.com/dominikacookies/vegan-pals#readme"
+  "homepage": "https://github.com/misha244/vegan-pals#readme"
 }
